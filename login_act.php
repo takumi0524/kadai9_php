@@ -39,7 +39,7 @@ if($status === false){
 $val = $stmt->fetch();  //1レコードだけ取得する方法
 
 //if(password_verify($lpw, $val['lpw'])){ //* PasswordがHash化の場合はこっちのIFを使う
-if( $val['id'] != ''){
+if( $val['id'] != '' && password_verify($lpw, $val['u_pw'])){
     //Login成功時 該当レコードがあればSESSIONに値を代入
     $_SESSION["chk_ssid"] = session_id();
     // $_SESSION["kanri_flg"] = $val['kanri_flg'];
